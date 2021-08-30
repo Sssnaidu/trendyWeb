@@ -1,0 +1,93 @@
+:root {
+    --bg-color: #F9F6F0;
+    --text-color: #0F0D12;
+    --secondary-text-color: #676E7F;
+    --typewriter-typespeed: 4s steps(79)
+}
+
+body{
+    margin: 1em;
+    font-family: "Source Sans Pro", sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.punchline{
+    font-size: clamp(1rem,3vw + 1rem, 4rem);
+    position: relative;
+    font-family: "Source Code Pro", monospace;
+    position: relative;
+    width: max-content;
+    text-shadow: #676E7F 1px 2px 5px;
+}
+
+.punchline::before, .punchline::after{
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+
+.punchline::before{
+    background-color: var(--bg-color);
+    animation: typewriter 4s steps(30) 1s forwards;
+}
+
+.punchline::after{
+    width: .125em;
+    background: black;
+    animation: 
+    typewriter 4s steps(30) 1s forwards,
+    blink 750ms steps(30) infinite;
+    
+}
+
+.subtitle{
+    color: var(--secondary-text-color);
+    font-size: 2rem;
+    font-weight: 400;
+    transform: translateX(4rem);
+    opacity: 0;
+    animation: fadeIn 3s ease 5s forwards;
+}
+
+.btn{
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: max-content;
+    height: max-content;
+}
+
+.btn:hover, .btn:focus{
+    box-shadow: #676E7F 5px 5px 5px;
+    animation: pulse 750ms infinite;
+}
+
+@keyframes typewriter {
+    to{ left: 100%;}
+}
+
+@keyframes blink{
+    to{
+        background: transparent;
+    }
+}
+
+@keyframes fadeIn {
+   to{ opacity: 1;
+    transform: translateX(0);
+   }
+}
+
+@keyframes pulse{
+    to{
+        transform: scale(1.1);
+    }
+}

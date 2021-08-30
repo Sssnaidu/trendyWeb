@@ -1,0 +1,132 @@
+:root {
+  --bg-color: #f9f6f0;
+  --text-color: #0f0d12;
+  --secondary-text-color: #676e7f;
+  --typewriter-typespeed: 4s steps(79);
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.punchline {
+  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  position: relative;
+  font-family: "Source Code Pro", monospace;
+  position: relative;
+  width: max-content;
+  text-shadow: #676e7f 1px 2px 5px;
+}
+
+.punchline::before,
+.punchline::after {
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.punchline::before {
+  background-color: var(--bg-color);
+  animation: typewriter 4s steps(24) 1s forwards;
+}
+
+.punchline::after {
+  width: 0.125em;
+  background: black;
+  animation: typewriter 4s steps(24) 1s forwards, blink 750ms steps(24) infinite;
+}
+
+.form {
+  margin-top: 5px;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: "Source Code Pro", monospace;
+}
+
+.signUp {
+  display: grid;
+  height: max-content;
+  border-radius: 5px;
+  font-size: 28px;
+  padding: 3%;
+  transform: translateX(4rem);
+  opacity: 0;
+  animation: fadeIn 3s ease 5s forwards;
+  text-shadow: #676e7f 1px 1px 2px;
+}
+
+.formInput {
+  margin-top: 5px;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 200;
+  padding: 2%;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: var(--text-color) 1px 2px 3px;
+  align-items: center;
+}
+
+.formInput:hover,
+.formInput:focus {
+  box-shadow: #676e7f 5px 5px 5px;
+}
+
+#btn {
+  display: inline-flex;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  width: max-content;
+  height: max-content;
+  padding: 5%;
+  transform: translateX(15);
+}
+
+#btn:hover,
+.btn:focus {
+  box-shadow: #676e7f 5px 5px 5px;
+  animation: pulse 750ms infinite;
+}
+
+.validationMessage {
+  color: red;
+  font-size: 14px;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(1.1);
+  }
+}

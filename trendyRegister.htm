@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRENDY</title>
+
+    <link rel="stylesheet" type="text/css" href="css/trendyRegister.css">
+</head>
+<body>
+
+    <div class="content">
+        <h1 class="punchline">
+            Fill out the form below:
+        </h1> 
+    </div>
+
+    <div class="form">
+        <form class="signUp" action="trendRegister.php" method="POST">
+            <label for="firstName">First Name:</label><input id= firstName class="formInput" type="text" name="firstName">
+            <p id="firstNameValidate" class="validationMessage"></p>
+
+            <label for="lastName"></label>Last Name:<input id="lastName" class="formInput" type="text" name="lastName">
+            <p id="lastNameValidate" class="validationMessage"></p>
+
+            <label for="email"></label>Email Address:<input id="email" class="formInput" type="email" name="email">
+            <p id="emailValidate" class="validationMessage"></p>
+
+            <div class="submitButton">
+            <button type="submit" class="formInput" id="btn" onclick="validateFields()">
+                Submit
+               </button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+
+        function validateFields(){
+
+            let firstNameValidate = document.getElementById('firstNameValidate').value
+
+            let firstName = document.getElementById('firstName').value
+
+            if(firstName == ''){
+                document.getElementById('firstNameValidate').innerHTML = "Field cannot be blank"
+                document.getElementById('firstName').style.border = "5px red"
+            }
+
+            let lastName = document.getElementById('lastName').value
+            
+            if(lastName == ''){
+                document.getElementById('lastNameValidate').innerHTML = "Field cannot be blank"
+                document.getElementById('lastName').style.border = "5px red"
+               }
+
+            let email = document.getElementById('email').value
+            
+            if(email == ''){
+                document.getElementById('emailValidate').innerHTML = "Field cannot be blank"
+                document.getElementById('email').style.border = "5px red"
+            }
+
+            if(!email.includes('@')){
+                document.getElementById('emailValidate').innerHTML = "Please enter an email address"
+                document.getElementById('email').style.border = "5px red"
+            }
+
+            document.getElementById('btn').style.backgroundColor = "#676e7f"
+        }
+
+        for(knowledgeLevel = 0; knowledgeLevel<1000; knowledgeLevel++){console.log('Constantly Learning')}
+    </script>
+</body>
+</html>
